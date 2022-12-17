@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Loading from "./components/Loading";
 import Products from "./components/Products";
+import Proloading from "./components/Proloading";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -14,8 +15,7 @@ function App() {
     setInterval(() => {
       setProLoading(false);
       setCategory(e.target.value);
-    }, 500)
-   
+    }, 500);
   };
 
   const fetchData = async () => {
@@ -43,23 +43,25 @@ function App() {
     <div className="App">
       <div className="container">
         <div className="top-wrapper">
-          <h4>{products.length} products available</h4>
+          <h2>Product Listing React</h2>
           <div className="category-sector">
-            <label htmlFor="products">Select Products</label>
-            <select name="products" id="products" defaultValue={"smartphones"} onChange={(e) => handleChange(e)}>
-              {/* <option value="all">All</option> */}
-              <option value="smartphones">Smartphones</option>
-              <option value="laptops">Laptops</option>
-              <option value="fragrances">Fragrances</option>
-              <option value="skincare">Skincare</option>
-              <option value="home-decoration">Home Decoration</option>
-            </select>
+            <h4>{products.length} products available</h4>
+            <div>
+              <label htmlFor="products">Select Products</label>
+              <select name="products" id="products" defaultValue={"smartphones"} onChange={(e) => handleChange(e)}>
+                {/* <option value="all">All</option> */}
+                <option value="smartphones">Smartphones</option>
+                <option value="laptops">Laptops</option>
+                <option value="fragrances">Fragrances</option>
+                <option value="skincare">Skincare</option>
+                <option value="home-decoration">Home Decoration</option>
+              </select>
+            </div>
           </div>
         </div>
         <div className="products-wrapper">
-            
-          { proloading ? "Loading..." : <Products products={products} category={category} /> }
-          
+          {proloading ? <Proloading /> : <Products products={products} category={category} />}
+          {/* <Proloading /> */}
         </div>
       </div>
     </div>

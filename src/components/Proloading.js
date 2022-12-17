@@ -1,7 +1,7 @@
-const Loading = () => {
+const Proloading = () => {
   return (
     <>
-      <div className="loading-wrapper">
+      <div className="loading-pro">
         <div class="spinner">
           <div></div>
           <div></div>
@@ -14,4 +14,4 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export default Proloading;
